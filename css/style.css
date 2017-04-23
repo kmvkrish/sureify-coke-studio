@@ -1,0 +1,109 @@
+body{
+	padding-top: 90px;
+}
+
+.navbar a{
+	color: white !important;
+}
+
+.song:hover{
+	background: #f5f5f5 !important;
+	cursor: pointer;
+}
+
+.songs{
+	height: 1000px !important;
+}
+
+.song-container{
+	display: inline-flex !important;
+	vertical-align: middle;
+}
+
+.song-container .song-details{
+	padding-left: 10px;
+}
+.song-details p{
+	line-height: 18px !important;
+}
+
+.song-container img{
+	width: 60px;
+	height:60px;
+	border-radius: 50% !important;
+}
+
+.song-controls audio{
+	float: left !important;
+	width: 100%;
+	max-width: 250px !important;
+	vertical-align: middle !important;
+}
+
+.audio-player-container{
+	display: inline-flex;
+	color: white;
+}
+
+.audio-details{
+	padding-left: 10px;
+}
+
+.audio-image{
+	width: 120px;
+	height: 100%;
+}
+
+.audio-controls{
+	display: inline-flex;
+}
+
+.prev, .next, .play, .pause, like, liked, download{
+	width: auto;
+	background: transparent;
+	color: #fff !important;
+	border: none;
+	height: auto !important;
+}
+
+.prev:hover, .next:hover, .play:hover, .pause:hover, like:hover, liked:hover, download:hover, .prev:focus, .next:focus, .play:focus, .pause:focus{
+	background: transparent !important;
+	height: auto;
+	color: #a5a5a5 !important;
+	border: none !important;
+}
+
+.progress{
+	margin-top: 10px;
+	padding-left: 10px;
+	height: 2px;
+	background: transparent !important;
+	width: 100% !important;
+}
+
+.progressbar{
+	height: 2px !important;
+	background: white !important;
+	width: auto;
+	max-width: 100%;
+}
+
+.activity-history-container{
+	width: auto;
+	margin: 0px auto;
+	height: 1000px !important;
+}
+
+.history{
+	display: inline-flex;
+	width: 100% !important;
+}
+
+.history img{
+	width: 120px;
+	height: 120px;
+}
+
+.history-details{
+	padding-left: 10px;
+}

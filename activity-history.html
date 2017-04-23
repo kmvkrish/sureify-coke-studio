@@ -1,0 +1,23 @@
+<div class="row">
+	<div class="col-sm-12 col-md-12">
+		<div class="activity-history-container">
+			<div class="activity-history" ng-if="activityHistory.length" ng-repeat="history in activityHistory">
+				<div class="well history">
+					<img ng-src="{{history.song.img}}" class="img-responsive history-image" />
+					<div class="history-details">
+						<h5>{{history.song.title}}</h5>
+						<p>
+							<i class="fa fa-clock-o">&nbsp;</i> {{history.song.date | date: 'MMM dd, yyyy'}}
+						</p>
+						<p>You attempted to {{history.Activity}}</p>
+					</div>
+				</div>
+			</div>
+			<div ng-if="!activityHistory.length">
+				<div class="alert alert-danger">
+					<p>No activities registered. Try liking or downloading a song</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

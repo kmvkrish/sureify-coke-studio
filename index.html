@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<base href="/" />
+		<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="./css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="./css/style.css" />
+	</head>
+	<body ng-app="SureifyCokeStudio">
+		<nav role="nav" class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<a class="navbar-brand" ui-sref="home">Sureify - Coke Studio</a>
+				</div>
+				<div class="nav navabr-right">
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<a ui-sref="activity">Activity</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<div class="container">
+			<div ui-view></div>
+		</div>
+
+		<audio-player></audio-player>
+
+		<script type="text/javascript" src="./js/jquery.min.js"></script>
+		<script type="text/javascript" src="./js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="./js/angular.min.js"></script>
+		<script type="text/javascript" src="./js/angular-ui-router.min.js"></script>
+		<script type="text/javascript" src="./js/app/app.js"></script>
+		<script type="text/javascript" src="./js/app/audio-player.directive.js"></script>
+		<script type="text/javascript" src="./js/app/coke-studio.service.js"></script>
+		<script type="text/javascript" src="./js/app/list-songs.controller.js"></script>
+		<script type="text/javascript" src="./js/app/activity-history.controller.js"></script>
+	</body>
+</html>
