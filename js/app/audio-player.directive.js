@@ -44,12 +44,15 @@ angular.module("SureifyCokeStudio")
 			
 			//set track and play it
 			$rootScope.$on('audio.set', function(r, song, currentNum, totalNum){
-				var isPaused = $scope.audio.paused;
 				
 				$scope.isLiked = song.isLiked;
 				$scope.downloadLink = song.url;
 				$scope.audio.src = song.url;
-				var a = isPaused? $scope.audio.play(): null;
+				
+				if($scope.audio.paused){
+					$scope.audio.play();
+				}
+
 				$scope.artists = song.artists;
 				$scope.image = song.cover_image;
 				$scope.title = song.song;

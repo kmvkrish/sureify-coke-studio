@@ -3,17 +3,27 @@ angular.module("SureifyCokeStudio")
 	
 	$scope.currentTrack = 0;
 	$scope.songs = [];
-	
+	$scope.songsQueue = [];
 	var updateTrack = function(){
-		$rootScope.$broadcast('audio.set', $scope.songs[$scope.currentTrack], $scope.currentTrack, $scope.songs.length);
+		$rootScope.$broadcast('audio.set', $scope.songsQueue[$scope.currentTrack], $scope.currentTrack, $scope.songsQueue.length);
 	};
-	
+
+	$scope.addToQueue = function(index){
+		$scope.songsQueue.push($scope.songs[index]);
+		if($scope.songsQueue.length == 1){
+			$scope.currentTrack = 0;
+		}else{
+			$scope.currentTrack++;
+		}
+		updateTrack();
+	};
+
 	$rootScope.$on('audio.next', function(){
 		$scope.currentTrack++;
-		if ($scope.currentTrack < $scope.songs.length){
+		if ($scope.currentTrack < $scope.songsQueue.length){
 			updateTrack();
 		}else{
-			$scope.currentTrack=$scope.songs.length-1;
+			$scope.currentTrack=$scope.songsQueue.length-1;
 		}
     });
 
@@ -37,13 +47,13 @@ angular.module("SureifyCokeStudio")
 		CokeStudioService.userHistory.push({
 			"Activity": "Like",
 			"song": {
-				img: $scope.songs[$scope.currentTrack].cover_image,
-				title: $scope.songs[$scope.currentTrack].song,
-				url: $scope.songs[$scope.currentTrack].url,
+				img: $scope.songsQueue[$scope.currentTrack].cover_image,
+				title: $scope.songsQueue[$scope.currentTrack].song,
+				url: $scope.songsQueue[$scope.currentTrack].url,
 				date: new Date()
 			}
 		});
-		$scope.songs[$scope.currentTrack].isLiked = true;
+		$scope.songsQueue[$scope.currentTrack].isLiked = true;
 		$rootScope.$broadcast('audio.liked', this);
 	});
 	
@@ -51,9 +61,9 @@ angular.module("SureifyCokeStudio")
 		CokeStudioService.userHistory.push({
 			"Activity": "Dislike",
 			"song": {
-				img: $scope.songs[$scope.currentTrack].cover_image,
-				title: $scope.songs[$scope.currentTrack].song,
-				url: $scope.songs[$scope.currentTrack].url,
+				img: $scope.songsQueue[$scope.currentTrack].cover_image,
+				title: $scope.songsQueue[$scope.currentTrack].song,
+				url: $scope.songsQueue[$scope.currentTrack].url,
 				date: new Date()
 			}
 		});
@@ -70,7 +80,6 @@ angular.module("SureifyCokeStudio")
 			});
 			CokeStudioService.songs = songs;
 			$scope.songs = songs;
-			updateTrack();
 		}, function(error){
 			if(error){
 				$scope.errorMessage = error;
@@ -82,9 +91,9 @@ angular.module("SureifyCokeStudio")
 		CokeStudioService.userHistory.push({
 			"Activity": "Download",
 			"song": {
-				img: $scope.songs[$scope.currentTrack].cover_image,
-				title: $scope.songs[$scope.currentTrack].song,
-				url: $scope.songs[$scope.currentTrack].url,
+				img: $scope.songsQueue[$scope.currentTrack].cover_image,
+				title: $scope.songsQueue[$scope.currentTrack].song,
+				url: $scope.songsQueue[$scope.currentTrack].url,
 				date: new Date()
 			}
 		});

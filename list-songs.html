@@ -4,7 +4,7 @@
 			<input type="text" id="search" class="form-control" name="search" ng-model="name" placeholder="Type song name..." />
 		</div>
 		<ul class="list-group songs">
-			<li class="list-group-item song" ng-repeat="item in songs| filter: {'song': name}">
+			<li class="list-group-item song" ng-repeat="item in songs| filter: {'song': name}" ng-click="addToQueue($index)">
 				<div class="row">
 					<div class="col-sm-9">
 						<div class="song-container">
